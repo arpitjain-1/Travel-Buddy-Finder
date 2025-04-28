@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - Travel Buddy Finder</title>
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="/home" class="logo">
+                <i class='bx bx-trip'></i>
+                <span>TravelBuddy</span>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search destinations...">
+                <button><i class='bx bx-search'></i></button>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/destinations">Destinations</a></li>
+                    <li><a href="/find-buddy">Find a Buddy</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Email Verification Section -->
+    <section class="auth-container">
+        <div class="auth-card email-card">
+            <div class="auth-header">
+                <h2>Verify Your Email</h2>
+                <p>Enter your email address to receive a verification code</p>
+                <div class="signup-progress">
+                    <div class="progress-step active">
+                        <span class="step-number">1</span>
+                        <span class="step-name">Email</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <span class="step-number">2</span>
+                        <span class="step-name">Profile</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <span class="step-number">3</span>
+                        <span class="step-name">Verification</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="email-form" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Continue</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Footer Content -->
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Travel Buddy Finder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('email-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+
+            try {
+                const response = await fetch('/auth/request-otp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Store email in localStorage for use in signup page
+                    localStorage.setItem('signupEmail', email);
+                    
+                    // Show success message
+                    showAlert('OTP sent successfully! Redirecting...', 'success');
+                    
+                    // Redirect to signup page after a short delay
+                    setTimeout(() => {
+                        window.location.href = '/signup';
+                    }, 1500);
+                } else {
+                    showAlert(data.error || 'Failed to request OTP', 'error');
+                }
+            } catch (error) {
+                console.error('Request OTP error:', error);
+                showAlert('Failed to connect to the server', 'error');
+            }
+        });
+
+        function showAlert(message, type) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.style.position = 'fixed';
+            alertDiv.style.top = '20px';
+            alertDiv.style.left = '50%';
+            alertDiv.style.transform = 'translateX(-50%)';
+            alertDiv.style.padding = '12px 24px';
+            alertDiv.style.borderRadius = '4px';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            alertDiv.style.display = 'flex';
+            alertDiv.style.alignItems = 'center';
+            alertDiv.style.gap = '8px';
+
+            if (type === 'success') {
+                alertDiv.style.backgroundColor = '#2ecc71';
+                alertDiv.style.color = 'white';
+                alertDiv.innerHTML = `<i class='bx bx-check-circle'></i> ${message}`;
+            } else if (type === 'error') {
+                alertDiv.style.backgroundColor = '#e74c3c';
+                alertDiv.style.color = 'white';
+                alertDiv.innerHTML = `<i class='bx bx-error-circle'></i> ${message}`;
+            }
+
+            document.body.appendChild(alertDiv);
+
+            setTimeout(() => {
+                alertDiv.style.opacity = '0';
+                alertDiv.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    document.body.removeChild(alertDiv);
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

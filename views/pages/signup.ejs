@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Signup - Travel Buddy Finder</title>
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="/home" class="logo">
+                <i class='bx bx-trip'></i>
+                <span>TravelBuddy</span>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search destinations...">
+                <button><i class='bx bx-search'></i></button>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/destinations">Destinations</a></li>
+                    <li><a href="/find-buddy">Find a Buddy</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Complete Profile Section -->
+    <section class="auth-container">
+        <div class="auth-card signup-card">
+            <div class="auth-header">
+                <h2>Complete Your Profile</h2>
+                <p>Just a few more details to get you started</p>
+                <div class="signup-progress">
+                    <div class="progress-step completed">
+                        <span class="step-number">1</span>
+                        <span class="step-name">Email</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step active">
+                        <span class="step-number">2</span>
+                        <span class="step-name">Profile</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <span class="step-number">3</span>
+                        <span class="step-name">Verification</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="details-form" class="auth-form">
+                <!-- Email with OTP verification -->
+                <div class="form-group">
+                    <label for="confirm-email">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" id="confirm-email" name="email" readonly>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="otp">Verification Code</label>
+                    <div class="input-with-icon">
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="text" id="otp" placeholder="Enter the code sent to your email" name="otp" required>
+                    </div>
+                    <span id="resend-otp">Didn't receive a code? <a href="#" id="resend-link">Resend</a></span>
+                </div>
+                
+                <!-- Personal Details -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <div class="input-with-icon">
+                            <i class='bx bx-user'></i>
+                            <input type="text" id="first-name" name="firstName" placeholder="First name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <div class="input-with-icon">
+                            <i class='bx bx-user'></i>
+                            <input type="text" id="last-name" name="lastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <div class="input-with-icon">
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthdate">Date of Birth</label>
+                    <div class="input-with-icon">
+                        <i class='bx bx-calendar'></i>
+                        <input type="date" id="birthdate" name="birthdate" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <div class="input-with-icon">
+                        <i class='bx bx-map'></i>
+                        <input type="text" id="location" name="location" placeholder="City, Country" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>I am interested in finding travel buddies for:</label>
+                    <div class="interests-grid">
+                        <div class="interest-item">
+                            <input type="checkbox" id="adventure" name="interests" value="Adventure">
+                            <label for="adventure">Adventure</label>
+                        </div>
+                        <div class="interest-item">
+                            <input type="checkbox" id="cultural" name="interests" value="Cultural">
+                            <label for="cultural">Cultural</label>
+                        </div>
+                        <div class="interest-item">
+                            <input type="checkbox" id="beach" name="interests" value="Beach">
+                            <label for="beach">Beach</label>
+                        </div>
+                        <div class="interest-item">
+                            <input type="checkbox" id="city-breaks" name="interests" value="City Breaks">
+                            <label for="city-breaks">City Breaks</label>
+                        </div>
+                        <div class="interest-item">
+                            <input type="checkbox" id="hiking" name="interests" value="Hiking">
+                            <label for="hiking">Hiking</label>
+                        </div>
+                        <div class="interest-item">
+                            <input type="checkbox" id="food" name="interests" value="Food Tourism">
+                            <label for="food">Food Tourism</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Footer Content -->
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Travel Buddy Finder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get email from localStorage
+            const email = localStorage.getItem('signupEmail');
+            
+            if (email) {
+                document.getElementById('confirm-email').value = email;
+            } else {
+                // Redirect back to email page if no email in localStorage
+                showAlert('Please enter your email first', 'error');
+                setTimeout(() => {
+                    window.location.href = '/email-verification';
+                }, 1500);
+            }
+            
+            // Handle resend OTP
+            document.getElementById('resend-link').addEventListener('click', async function(e) {
+                e.preventDefault();
+                const email = document.getElementById('confirm-email').value;
+                
+                if (!email) {
+                    showAlert('Email is required', 'error');
+                    return;
+                }
+                
+                try {
+                    const response = await fetch('/auth/request-otp', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email: email })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        showAlert('OTP resent successfully!', 'success');
+                    } else {
+                        showAlert(data.error || 'Failed to resend OTP', 'error');
+                    }
+                } catch (error) {
+                    showAlert('Failed to connect to the server', 'error');
+                }
+            });
+        });
+        
+        // Handle signup form submission
+        document.getElementById('details-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {
+                email: document.getElementById('confirm-email').value,
+                otp: document.getElementById('otp').value,
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                password: document.getElementById('signup-password').value,
+                birthdate: document.getElementById('birthdate').value,
+                location: document.getElementById('location').value,
+                interests: Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+                    .map(cb => cb.value)
+            };
+            
+            try {
+                const response = await fetch('/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Clear localStorage
+                    localStorage.removeItem('signupEmail');
+                    
+                    // Show success message
+                    showAlert('Account created successfully! Redirecting to login...', 'success');
+                    
+                    // Redirect to login page
+                    setTimeout(() => {
+                        window.location.href = '/login';
+                    }, 2000);
+                } else {
+                    showAlert(data.error || 'Failed to create account', 'error');
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                showAlert('Failed to connect to the server', 'error');
+            }
+        });
+        
+        function showAlert(message, type) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.style.position = 'fixed';
+            alertDiv.style.top = '20px';
+            alertDiv.style.left = '50%';
+            alertDiv.style.transform = 'translateX(-50%)';
+            alertDiv.style.padding = '12px 24px';
+            alertDiv.style.borderRadius = '4px';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            alertDiv.style.display = 'flex';
+            alertDiv.style.alignItems = 'center';
+            alertDiv.style.gap = '8px';
+
+            if (type === 'success') {
+                alertDiv.style.backgroundColor = '#2ecc71';
+                alertDiv.style.color = 'white';
+                alertDiv.innerHTML = `<i class='bx bx-check-circle'></i> ${message}`;
+            } else if (type === 'error') {
+                alertDiv.style.backgroundColor = '#e74c3c';
+                alertDiv.style.color = 'white';
+                alertDiv.innerHTML = `<i class='bx bx-error-circle'></i> ${message}`;
+            }
+
+            document.body.appendChild(alertDiv);
+
+            setTimeout(() => {
+                alertDiv.style.opacity = '0';
+                alertDiv.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    document.body.removeChild(alertDiv);
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

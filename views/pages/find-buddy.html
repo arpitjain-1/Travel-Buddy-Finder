@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Buddy Finder - Find Your Travel Companion</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="find-buddy.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class='bx bx-trip'></i>
+                    Travel Buddy Finder
+                </div>
+                <ul class="nav-links">
+                    <li><a href="home.ejs">Home</a></li>
+                    <li><a href="destinations.ejs">Destinations</a></li>
+                    <li><a href="travel-buddy.ejs" class="active">Find a Buddy</a></li>
+                    <li><a href="about.ejs">About Us</a></li>
+                    <li><a href="contact.ejs">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline">Login</button>
+                    <button class="btn btn-primary">Sign Up</button>
+                </div>
+                <button class="mobile-menu-btn" style="display: none;">
+                    <i class='bx bx-menu'></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find Your Perfect Travel Buddy</h1>
+            <p>Connect with like-minded travelers heading to the same Indian destinations as you. Share experiences, split costs, and make lifelong memories together.</p>
+            
+            <form class="search-form">
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <select id="destination">
+                        <option value="">Select Destination</option>
+                        <option value="goa">Goa</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="ladakh">Ladakh</option>
+                        <option value="himachal">Himachal Pradesh</option>
+                        <option value="andaman">Andaman & Nicobar</option>
+                        <option value="northeast">Northeast India</option>
+                        <option value="varanasi">Varanasi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="travel-date">Travel Date</label>
+                    <input type="date" id="travel-date">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (Days)</label>
+                    <select id="duration">
+                        <option value="">Select Duration</option>
+                        <option value="1-3">1-3 days</option>
+                        <option value="4-7">4-7 days</option>
+                        <option value="8-14">8-14 days</option>
+                        <option value="15+">15+ days</option>
+                    </select>
+                </div>
+                <button type="button" class="search-btn">
+                    <i class='bx bx-search'></i> Find Buddies
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Buddies Section -->
+    <section class="buddies-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Available Travel Buddies</h2>
+                <p>Connect with these travelers who are planning trips to your desired destinations.</p>
+            </div>
+            
+            <div class="buddies-grid" id="buddies-container">
+                <!-- Buddies will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Finding a travel companion is easy with Travel Buddy Finder</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class='bx bx-search-alt'></i>
+                    </div>
+                    <h3>1. Search</h3>
+                    <p>Enter your destination, travel dates and preferences to find potential travel buddies.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class='bx bx-message-rounded-dots'></i>
+                    </div>
+                    <h3>2. Connect</h3>
+                    <p>Message your potential travel buddies to discuss plans and get to know each other.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class='bx bx-check-shield'></i>
+                    </div>
+                    <h3>3. Verify</h3>
+                    <p>Use our verification system to ensure safety and build trust with your travel buddy.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class='bx bx-trip'></i>
+                    </div>
+                    <h3>4. Travel</h3>
+                    <p>Plan your trip together and embark on an amazing adventure across India!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from travelers who found their perfect travel companions through our platform</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial" id="testimonial-1">
+                    <div class="testimonial-image">
+                        <img src="/api/placeholder/100/100" alt="Aarav Sharma">
+                    </div>
+                    <p class="testimonial-text">"I was hesitant about traveling solo, but through Travel Buddy Finder I met Priya who had the same itinerary for Kerala. We had an amazing time exploring the backwaters and made memories to last a lifetime!"</p>
+                    <p class="testimonial-author">Aarav Sharma</p>
+                    <p class="testimonial-location">Delhi, India</p>
+                </div>
+                
+                <div class="testimonial" id="testimonial-2" style="display: none;">
+                    <div class="testimonial-image">
+                        <img src="/api/placeholder/100/100" alt="Meera Patel">
+                    </div>
+                    <p class="testimonial-text">"As a female traveler, safety was my primary concern. The verification system on Travel Buddy Finder helped me connect with Anjali for our Rajasthan trip. It was the perfect blend of adventure and security!"</p>
+                    <p class="testimonial-author">Meera Patel</p>
+                    <p class="testimonial-location">Mumbai, India</p>
+                </div>
+                
+                <div class="testimonial" id="testimonial-3" style="display: none;">
+                    <div class="testimonial-image">
+                        <img src="/api/placeholder/100/100" alt="Vikram & Rohit">
+                    </div>
+                    <p class="testimonial-text">"We were a group of friends looking for more people to join our Ladakh road trip. Through this platform, we found two more adventure enthusiasts who shared our passion for motorcycling. The journey became even more memorable!"</p>
+                    <p class="testimonial-author">Vikram & Rohit</p>
+                    <p class="testimonial-location">Bangalore, India</p>
+                </div>
+                
+                <div class="slider-dots">
+                    <span class="dot active" onclick="showTestimonial(1)"></span>
+                    <span class="dot" onclick="showTestimonial(2)"></span>
+                    <span class="dot" onclick="showTestimonial(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Travel Buddy?</h2>
+                <p>Create your profile today and start connecting with fellow travelers all across India. Share experiences, split costs, and make lifelong memories!</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn cta-btn-white">Sign Up Now</button>
+                    <button class="cta-btn cta-btn-outline">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Sidebar -->
+    <div class="filter-sidebar" id="filter-sidebar">
+        <button class="close-filter" id="close-filter">
+            <i class='bx bx-x'></i>
+        </button>
+        <div class="filter-header">
+            <h2>Filter Buddies</h2>
+        </div>
+        
+        <div class="filter-section">
+            <h3>Age Range</h3>
+            <input type="range" min="18" max="70" value="18" class="filter-range" id="age-range">
+            <div class="range-labels">
+                <span>18</span>
+                <span id="age-value">18</span>
+                <span>70+</span>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <h3>Gender</h3>
+            <div class="filter-options">
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="male"> Male
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="female"> Female
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="other"> Other
+                </label>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <h3>Travel Style</h3>
+            <div class="filter-options">
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="budget"> Budget
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="mid-range"> Mid-range
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="luxury"> Luxury
+                </label>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <h3>Interests</h3>
+            <div class="filter-options">
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="adventure"> Adventure
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="culture"> Culture & Heritage
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="food"> Food & Cuisine
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="nature"> Nature & Wildlife
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="photography"> Photography
+                </label>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <h3>Language</h3>
+            <div class="filter-options">
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="english"> English
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="hindi"> Hindi
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="tamil"> Tamil
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="bengali"> Bengali
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="other-lang"> Other
+                </label>
+            </div>
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn apply-filter" id="apply-filter">Apply Filters</button>
+            <button class="filter-btn reset-filter" id="reset-filter">Reset</button>
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="filter-toggle" id="filter-toggle">
+        <i class='bx bx-filter-alt'></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Travel Buddy Finder</h3>
+                    <p>Connecting travelers across India for memorable journeys together. Find your perfect travel companion today!</p>
+                    <div class="social-links"> 
+                        <a href="#" class="social-link">
+                            <i class='bx bxl-facebook'></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class='bx bxl-instagram'></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class='bx bxl-twitter'></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.ejs">Home</a></li>
+                        <li><a href="destinations.ejs">Destinations</a></li>
+                        <li><a href="travel-buddy.ejs">Travel Buddy</a></li>
+                        <li><a href="community.ejs">Community</a></li>
+                        <li><a href="about.ejs">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Goa</a></li>
+                        <li><a href="#">Rajasthan</a></li>
+                        <li><a href="#">Kerala</a></li>
+                        <li><a href="#">Himachal Pradesh</a></li>
+                        <li><a href="#">Andaman & Nicobar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Help & Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Travel Buddy Finder. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="find-buddy.js"></script>
+</body>
+</html>
