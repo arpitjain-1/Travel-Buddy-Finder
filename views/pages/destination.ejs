@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover India - Travel Buddy Finder</title>
+    <link rel="stylesheet" href="../css/destination.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <a href="/" class="logo">
+            <i class='bx bx-trip'></i>
+            <span>TravelBuddy</span>
+          </a>
+      
+          <div class="search-container" style="background-color: inherit;">
+            <!-- Search moved to filter section -->
+          </div>
+      
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/destinations">Destinations</a></li>
+              <li><a href="/find-buddy">Find a Buddy</a></li>
+              <li><a href="/about-us">About Us</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+          </nav>
+          <form action="/auth/logout" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-outline">Logout</button>
+          </form>          
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Discover India's Wonders</h1>
+            <p>From majestic mountains to stunning beaches, ancient temples to vibrant cities</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="filter-section">
+            <h2>Explore Destinations</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="region-filter">Region:</label>
+                    <select id="region-filter">
+                        <option value="all">All Regions</option>
+                        <option value="North">North India</option>
+                        <option value="South">South India</option>
+                        <option value="East">East India</option>
+                        <option value="West">West India</option>
+                        <option value="Central">Central India</option>
+                        <option value="North-East">Northeast India</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="state-filter">State:</label>
+                    <select id="state-filter">
+                        <option value="all">All States</option>
+                        <!-- States will be populated dynamically -->
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" id="search-input" placeholder="Search destinations...">
+                    <button id="search-button"><i class='bx bx-search'></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations-grid" id="destinations-container">
+            <!-- Destinations will be loaded dynamically via JavaScript -->
+        </section>
+
+        <div class="pagination">
+            <button id="load-more" class="btn">Load More</button>
+        </div>
+    </main>
+
+    <section class="travel-buddy-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Find Travel Buddies for Your India Adventure</h2>
+                <p>Connect with fellow travelers, share experiences, and makeacet your journey through India unforgettable!</p>
+                <a href="find-buddy.ejs" class="btn btn-primary">Find a Travel Buddy</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="travel-tips">
+        <div class="container">
+            <h2>India Travel Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class='bx bx-calendar'></i>
+                    </div>
+                    <h3>Best Time to Visit</h3>
+                    <p>October to March is generally the best time to visit most parts of India with pleasant weather.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class='bx bxs-plane-take-off'></i>
+                    </div>
+                    <h3>Getting Around</h3>
+                    <p>India has extensive rail networks, domestic flights, and bus services connecting major destinations.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class='bx bx-food-menu'></i>
+                    </div>
+                    <h3>Cuisine</h3>
+                    <p>Each region offers unique culinary delights. Don't miss trying local specialties wherever you go!</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class='bx bx-message-detail'></i>
+                    </div>
+                    <h3>Language</h3>
+                    <p>Hindi is widely spoken, but English is common in tourist areas and among the younger population.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="/" class="logo">
+                    <i class='bx bx-trip'></i>
+                    <span>TravelBuddy</span>
+                </a>
+                <p>Connect with like-minded travelers and embark on unforgettable journeys together.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-pinterest'></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/find-buddy">Browse Travelers</a></li>
+                    <li><a href="/destinations">Destinations</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/support">Help Center</a></li>
+                    <li><a href="/support">Safety Tips</a></li>
+                    <li><a href="/support">Privacy Policy</a></li>
+                    <li><a href="/support">Terms of Service</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Travel Buddy Finder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const destinationsContainer = document.getElementById('destinations-container');
+            const regionFilter = document.getElementById('region-filter');
+            const stateFilter = document.getElementById('state-filter');
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const loadMoreButton = document.getElementById('load-more');
+
+            let destinationsData = {};
+            let currentPage = 1;
+            const itemsPerPage = 6;
+
+            // Fetch destinations data from JSON file
+            fetch('../../Utils/india_destinations.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Fetched data:', data); // Debug: Log the fetched data
+                    destinationsData = data.India;
+                    populateStateFilter(regionFilter.value);
+                    loadDestinations();
+                })
+                .catch(error => {
+                    console.error('Error loading destinations:', error);
+                    destinationsContainer.innerHTML = '<p>Error loading destinations. Please try again later.</p>';
+                });
+
+            // Populate state filter based on selected region
+            function populateStateFilter(region) {
+                stateFilter.innerHTML = '<option value="all">All States</option>';
+                if (region === 'all') {
+                    // Show all states from all regions
+                    Object.keys(destinationsData).forEach(reg => {
+                        Object.keys(destinationsData[reg]).forEach(state => {
+                            const option = document.createElement('option');
+                            option.value = state;
+                            option.textContent = state;
+                            stateFilter.appendChild(option);
+                        });
+                    });
+                } else {
+                    // Show states only for the selected region
+                    if (destinationsData[region]) {
+                        Object.keys(destinationsData[region]).forEach(state => {
+                            const option = document.createElement('option');
+                            option.value = state;
+                            option.textContent = state;
+                            stateFilter.appendChild(option);
+                        });
+                    } else {
+                        console.warn(`No states found for region: ${region}`); // Debug: Warn if region has no states
+                    }
+                }
+                console.log(`State filter populated for region: ${region}`); // Debug: State population
+            }
+
+            // Load destinations based on filters
+            function loadDestinations() {
+                const region = regionFilter.value;
+                const state = stateFilter.value;
+                const search = searchInput.value.toLowerCase();
+
+                let destinations = [];
+                if (region === 'all') {
+                    Object.keys(destinationsData).forEach(reg => {
+                        Object.keys(destinationsData[reg]).forEach(st => {
+                            if (state === 'all' || state === st) {
+                                destinationsData[reg][st].forEach(dest => {
+                                    destinations.push({ name: dest, state: st, region: reg });
+                                });
+                            }
+                        });
+                    });
+                } else {
+                    if (destinationsData[region]) {
+                        Object.keys(destinationsData[region]).forEach(st => {
+                            if (state === 'all' || state === st) {
+                                destinationsData[region][st].forEach(dest => {
+                                    destinations.push({ name: dest, state: st, region: region });
+                                });
+                            }
+                        });
+                    }
+                }
+
+                // Filter by search input
+                if (search) {
+                    destinations = destinations.filter(dest => dest.name.toLowerCase().includes(search));
+                }
+
+                // Pagination
+                const start = (currentPage - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const paginatedDestinations = destinations.slice(start, end);
+
+                // Clear previous destinations
+                destinationsContainer.innerHTML = '';
+
+                // Display destinations
+                paginatedDestinations.forEach(destination => {
+                    const destinationCard = document.createElement('div');
+                    destinationCard.className = 'destination-card';
+                    destinationCard.innerHTML = `
+                        <h3>${destination.name}</h3>
+                        <p>${destination.state}, ${destination.region} India</p>
+                        <a href="/find-buddy" class="btn">Create Trip</a>
+                    `;
+                    destinationsContainer.appendChild(destinationCard);
+                });
+
+                // Hide load more button if no more destinations
+                loadMoreButton.style.display = end >= destinations.length ? 'none' : 'block';
+            }
+
+            // Event listeners
+            regionFilter.addEventListener('change', () => {
+                currentPage = 1;
+                destinationsContainer.innerHTML = '';
+                populateStateFilter(regionFilter.value);
+                loadDestinations();
+            });
+
+            stateFilter.addEventListener('change', () => {
+                currentPage = 1;
+                destinationsContainer.innerHTML = '';
+                loadDestinations();
+            });
+
+            searchButton.addEventListener('click', () => {
+                currentPage = 1;
+                destinationsContainer.innerHTML = '';
+                loadDestinations();
+            });
+
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    currentPage = 1;
+                    destinationsContainer.innerHTML = '';
+                    loadDestinations();
+                }
+            });
+
+            loadMoreButton.addEventListener('click', () => {
+                currentPage++;
+                loadDestinations();
+            });
+        });
+    </script>
+</body>
+</html>

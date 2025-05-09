@@ -1,0 +1,190 @@
+{
+  "India": {
+    "North": {
+      "Jammu & Kashmir": [
+        "Srinagar",
+        "Pahalgam",
+        "Gulmarg",
+        "Sonamarg"
+      ],
+      "Himachal Pradesh": [
+        "Manali",
+        "Shimla",
+        "Dharamshala",
+        "Spiti Valley"
+      ],
+      "Uttarakhand": [
+        "Nainital",
+        "Mussoorie",
+        "Rishikesh",
+        "Haridwar"
+      ],
+      "Punjab": [
+        "Amritsar",
+        "Chandigarh",
+        "Ludhiana",
+        "Patiala"
+      ],
+      "Haryana": [
+        "Gurugram",
+        "Kurukshetra",
+        "Panipat"
+      ],
+      "Delhi": [
+        "India Gate",
+        "Qutub Minar",
+        "Red Fort",
+        "Lotus Temple"
+      ]
+    },
+    "South": {
+      "Tamil Nadu": [
+        "Chennai",
+        "Ooty",
+        "Kodaikanal",
+        "Madurai",
+        "Rameswaram"
+      ],
+      "Kerala": [
+        "Munnar",
+        "Alleppey",
+        "Kochi",
+        "Wayanad",
+        "Thekkady"
+      ],
+      "Karnataka": [
+        "Bangalore",
+        "Mysore",
+        "Coorg",
+        "Hampi",
+        "Gokarna"
+      ],
+      "Andhra Pradesh": [
+        "Visakhapatnam",
+        "Tirupati",
+        "Araku Valley",
+        "Vijayawada"
+      ],
+      "Telangana": [
+        "Hyderabad",
+        "Warangal",
+        "Nagarjuna Sagar",
+        "Bhadrachalam"
+      ]
+    },
+    "East": {
+      "West Bengal": [
+        "Kolkata",
+        "Darjeeling",
+        "Sundarbans",
+        "Kalimpong"
+      ],
+      "Odisha": [
+        "Puri",
+        "Bhubaneswar",
+        "Konark",
+        "Chilika Lake"
+      ],
+      "Bihar": [
+        "Patna",
+        "Bodh Gaya",
+        "Rajgir",
+        "Nalanda"
+      ],
+      "Jharkhand": [
+        "Ranchi",
+        "Netarhat",
+        "Deoghar",
+        "Hazaribagh"
+      ]
+    },
+    "West": {
+      "Rajasthan": [
+        "Jaipur",
+        "Udaipur",
+        "Jaisalmer",
+        "Mount Abu",
+        "Jodhpur"
+      ],
+      "Gujarat": [
+        "Ahmedabad",
+        "Rann of Kutch",
+        "Gir",
+        "Dwarka",
+        "Somnath"
+      ],
+      "Maharashtra": [
+        "Mumbai",
+        "Pune",
+        "Lonavala",
+        "Ajanta",
+        "Mahabaleshwar"
+      ],
+      "Goa": [
+        "Panaji",
+        "Calangute",
+        "Baga",
+        "Palolem",
+        "Anjuna"
+      ]
+    },
+    "Central": {
+      "Madhya Pradesh": [
+        "Bhopal",
+        "Khajuraho",
+        "Pachmarhi",
+        "Bandhavgarh",
+        "Kanha"
+      ],
+      "Chhattisgarh": [
+        "Raipur",
+        "Jagdalpur",
+        "Chitrakoot",
+        "Barnawapara"
+      ]
+    },
+    "North-East": {
+      "Assam": [
+        "Guwahati",
+        "Kaziranga",
+        "Majuli",
+        "Sivasagar"
+      ],
+      "Meghalaya": [
+        "Shillong",
+        "Cherrapunji",
+        "Mawsynram",
+        "Dawki"
+      ],
+      "Arunachal Pradesh": [
+        "Tawang",
+        "Ziro",
+        "Itanagar"
+      ],
+      "Nagaland": [
+        "Kohima",
+        "Dzukou Valley",
+        "Mon"
+      ],
+      "Manipur": [
+        "Imphal",
+        "Loktak Lake"
+      ],
+      "Mizoram": [
+        "Aizawl",
+        "Champhai"
+      ],
+      "Tripura": [
+        "Agartala",
+        "Unakoti",
+        "Neermahal"
+      ],
+      "Sikkim": [
+        "Gangtok",
+        "Lachung",
+        "Yumthang",
+        "Pelling"
+      ]
+    }
+  }
+}

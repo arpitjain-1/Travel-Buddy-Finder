@@ -3,28 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Travel Buddy Finder </title>
+    <title>About Us - Travel Buddy Finder</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/about.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <i class='bx bx-trip'></i>
-                <h1>Travel Buddy Finder</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="home.ejs">Home</a></li>
-                <li><a href="destinations.ejs"> Destinations</a></li>
-                <li><a href="find-buddy.ejs">Find a Buddy</a></li>                
-                <li><a href="about.ejs" class="active">About Us</a></li>
-                <li><a href="contact.ejs">Contact</a></li>
+        <div class="header-container">
+          <a href="/" class="logo">
+            <i class='bx bx-trip'></i>
+            <span>TravelBuddy</span>
+          </a>
+      
+          <div class="search-container" style="background-color: inherit;">
+            <!-- Search moved to filter section -->
+          </div>
+      
+          <nav>
+            <ul>
+              <a href="/">Home</a>
+              <li><a href="/destinations">Destinations</a></li>
+              <li><a href="/find-buddy">Find a Buddy</a></li>
+              <li><a href="/about-us">About Us</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/dashboard" class="nav-item-with-badge">
+        Dashboard
+        <% if (locals.user && locals.incomingRequests && incomingRequests.length > 0) { %>
+          <span class="notification-badge"><%= incomingRequests.length %></span>
+        <% } %>
+      </a>
+</li>
             </ul>
-            <div class="hamburger">
-                <i class='bx bx-menu'></i>
-            </div>
-        </nav>
+          </nav>
+          <form action="/auth/logout" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-outline">Logout</button>
+          </form>          
+        </div>
     </header>
 
     <main>
@@ -66,22 +81,22 @@
             <div class="container">
                 <h2>Our Values</h2>
                 <div class="values-grid">
-                    <div class="value-card" data-aos="fade-up">
+                    <div class="value-card">
                         <i class='bx bx-shield-quarter'></i>
                         <h3>Safety First</h3>
                         <p>We verify profiles and provide tools for secure communication between members across India.</p>
                     </div>
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card">
                         <i class='bx bx-group'></i>
                         <h3>Community</h3>
                         <p>We foster a supportive community of Indian travelers who help each other explore and grow.</p>
                     </div>
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card">
                         <i class='bx bx-world'></i>
                         <h3>Inclusivity</h3>
                         <p>We welcome travelers from all backgrounds, cultures, and regions of India.</p>
                     </div>
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card">
                         <i class='bx bx-bulb'></i>
                         <h3>Innovation</h3>
                         <p>We constantly improve our platform to better serve our Indian community's needs.</p>
@@ -241,66 +256,53 @@
                 <h2>Ready to Find Your Travel Buddy?</h2>
                 <p>Join thousands of Indian travelers and start planning your next adventure with the perfect companion.</p>
                 <div class="cta-buttons">
-                    <a href="sign-up.ejs" class="btn btn-primary">Sign Up Now</a>
-                    <a href="how-it-works.ejs" class="btn btn-secondary">Learn How It Works</a>
+                    <a href="/signup" class="btn btn-primary">Sign Up Now</a>
+                    <a href="/support" class="btn btn-secondary">Learn How It Works</a>
                 </div>
             </div>
         </section>
     </main>
-
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="/" class="logo">
                     <i class='bx bx-trip'></i>
-                    <h2>Travel Buddy Finder</h2>
-                    <p>India's premier travel companion platform</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>Company</h3>
-                        <ul>
-                            <li><a href="about.ejs">About Us</a></li>
-                            <li><a href="team.ejs">Our Team</a></li>
-                            <li><a href="careers.ejs">Careers</a></li>
-                            <li><a href="press.ejs">Press Kit</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="blog.ejs">Travel Blog</a></li>
-                            <li><a href="safety.ejs">Safety Tips</a></li>
-                            <li><a href="faq.ejs">FAQs</a></li>
-                            <li><a href="support.ejs">Support</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Legal</h3>
-                        <ul>
-                            <li><a href="terms.ejs">Terms of Service</a></li>
-                            <li><a href="privacy.ejs">Privacy Policy</a></li>
-                            <li><a href="cookies.ejs">Cookie Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-social">
-                    <h3>Connect With Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class='bx bxl-facebook'></i></a>
-                        <a href="#"><i class='bx bxl-instagram'></i></a>
-                        <a href="#"><i class='bx bxl-twitter'></i></a>
-                        <a href="#"><i class='bx bxl-youtube'></i></a>
-                        <a href="#"><i class='bx bxl-whatsapp'></i></a>
-                    </div>
+                    <span>TravelBuddy</span>
+                </a>
+                <p>Connect with like-minded travelers and embark on unforgettable journeys together.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-pinterest'></i></ Dy>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Travel Buddy Finder India. All rights reserved.</p>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/find-buddy">Browse Travelers</a></li>
+                    <li><a href="/destinations">Destinations</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/support">Help Center</a></li>
+                    <li><a href="/support">Safety Tips</a></li>
+                    <li><a href="/support">Privacy Policy</a></li>
+                    <li><a href="/support">Terms of Service</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>© 2025 Travel Buddy Finder. All rights reserved.</p>
+        </div>
     </footer>
-
-    <script src="about.js"></script>
 </body>
 </html>

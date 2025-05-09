@@ -123,3 +123,17 @@ export const handleUserAccountData = async (req, res) => {
     res.status(500).send("Server Error Occurred");
   }
 };
+
+export const handleLogout = async (req, res) => {
+  try {
+    res.clearCookie('token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+    });
+    res.redirect('/login');
+  } catch (error) {
+    console.error('Logout Error:', error);
+    res.status(500).json({ error: 'Server error during logout' });
+  }
+};

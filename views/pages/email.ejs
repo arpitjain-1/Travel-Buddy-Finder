@@ -13,25 +13,29 @@
     <!-- Header Section -->
     <header>
         <div class="header-container">
-            <a href="/home" class="logo">
-                <i class='bx bx-trip'></i>
-                <span>TravelBuddy</span>
-            </a>
-            
-            <div class="search-container">
-                <input type="text" placeholder="Search destinations...">
-                <button><i class='bx bx-search'></i></button>
-            </div>
-            
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/destinations">Destinations</a></li>
-                    <li><a href="/find-buddy">Find a Buddy</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
+          <a href="/" class="logo">
+            <i class='bx bx-trip'></i>
+            <span>TravelBuddy</span>
+          </a>
+      
+          <div class="search-container" style="background-color: inherit;">
+            <!-- <input type="text" placeholder="Search destinations..." />
+            <button><i class='bx bx-search'></i></button> -->
+          </div>
+      
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/destinations">Destinations</a></li>
+              <li><a href="/find-buddy">Find a Buddy</a></li>
+              <li><a href="/about-us">About Us</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/dashboard">Dashboard</a></li>
+            </ul>
+          </nav>
+          <form action="/auth/logout" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-outline">Logout</button>
+          </form>          
         </div>
     </header>
 
@@ -75,10 +79,44 @@
 
     <footer>
         <div class="footer-container">
-            <!-- Footer Content -->
+            <div class="footer-col">
+                <a href="/" class="logo">
+                    <i class='bx bx-trip'></i>
+                    <span>TravelBuddy</span>
+                </a>
+                <p>Connect with like-minded travelers and embark on unforgettable journeys together.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-pinterest'></i></ Dy>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/how-it-works">How It Works</a></li>
+                    <li><a href="/find-buddy">Browse Travelers</a></li>
+                    <li><a href="/destinations">Destinations</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/support">Help Center</a></li>
+                    <li><a href="/support">Safety Tips</a></li>
+                    <li><a href="/support">Privacy Policy</a></li>
+                    <li><a href="/support">Terms of Service</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Travel Buddy Finder. All rights reserved.</p>
+            <p>© 2025 Travel Buddy Finder. All rights reserved.</p>
         </div>
     </footer>
 

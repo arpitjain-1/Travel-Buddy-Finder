@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Travel Buddy Finder</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo">
+        <i class='bx bx-trip'></i>
+        <span>TravelBuddy</span>
+      </a>
+  
+      <div class="search-container" style="background-color: inherit;">
+        <!-- <input type="text" placeholder="Search destinations..." />
+        <button><i class='bx bx-search'></i></button> -->
+      </div>
+  
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/destinations">Destinations</a></li>
+          <li><a href="/find-buddy">Find a Buddy</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+      </nav>
+      <form action="/auth/logout" method="POST" style="display: inline;">
+          <button type="submit" class="btn btn-outline">Logout</button>
+      </form>          
+    </div>
+</header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Have questions, feedback, or need assistance? We're here to help you with your travel buddy journey.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-container">
+
+        <div class="contact-info">
+          <div class="info-card">
+            <h3><i class='bx bx-map'></i> Visit Us</h3>
+            <p>Teerthanker Mahaveer University<br>Moradabad, Uttar Pradesh 244001<br>India</p>
+          </div>
+
+          <div class="info-card">
+            <h3><i class='bx bx-phone'></i> Call Us</h3>
+            <a href="tel:+911234567890">+91 7505098004</a><br>
+            <a href="tel:+911234567899">+91 9528668167</a><br>
+            <a href="tel:+911234567899">+91 8851353596</a>
+          </div>
+
+          <div class="info-card">
+            <h3><i class='bx bx-envelope'></i> Email Us</h3>
+            <a href="mailto:info@travelbuddyfinder.com">info@travelbuddyfinder.com</a><br>
+            <a href="mailto:support@travelbuddyfinder.com">support@travelbuddyfinder.com</a>
+          </div>
+
+          <div class="info-card">
+            <h3><i class='bx bx-time-five'></i> Office Hours</h3>
+            <p>Mon-Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+          </div>
+
+          <div class="info-card">
+            <h3><i class='bx bx-world'></i> Connect With Us</h3>
+            <div class="social-links">
+              <a href="#"><i class='bx bxl-instagram'></i></a>
+              <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <div class="form-title">
+            <h2>Send Us a Message</h2>
+            <p>We'll get back to you as soon as possible</p>
+          </div>
+          <form id="contactForm" method="POST" action="/contact">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="feedback">Feedback</option>
+                <option value="partnership">Partnership Opportunities</option>
+                <option value="complaint">Complaint</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn"><i class='bx bx-send'></i> Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <!-- Map Section -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3518.123456789!2d78.6581!3d28.8247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2sTeerthanker%20Mahaveer%20University!5e0!3m2!1sen!2sin!4v1610000000000"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+      <div class="section-title text-center">
+          <h2>Frequently Asked Questions</h2>
+          <p>Find quick answers to common questions about our services</p>
+      </div>
+      
+      <div class="faq-container">
+          <div class="faq-item">
+              <div class="faq-question">
+                  How do I find a travel buddy?
+                  <i class='bx bx-chevron-down'></i>
+              </div>
+              <div class="faq-answer">
+                  <p>Finding a travel buddy is easy with our platform. Simply create an account, set up your profile with your travel preferences, search for travelers going to your desired destination, and connect with them through our messaging system. You can also post your travel plans and let potential buddies find you!</p>
+              </div>
+          </div>
+          
+          <div class="faq-item">
+              <div class="faq-question">
+                  Is it safe to travel with someone I met online?
+                  <i class='bx bx-chevron-down'></i>
+              </div>
+              <div class="faq-answer">
+                  <p>Safety is our top priority. We have a verification system in place to ensure users are who they claim to be. We also encourage you to chat extensively with potential travel buddies before meeting, start with a public meetup, and always trust your instincts. Additionally, we provide safety guidelines and tips for traveling with new companions.</p>
+              </div>
+          </div>
+          
+          <div class="faq-item">
+              <div class="faq-question">
+                  Do I need to pay to use Travel Buddy Finder?
+                  <i class='bx bx-chevron-down'></i>
+              </div>
+              <div class="faq-answer">
+                  <p>Travel Buddy Finder offers both free and premium membership options. With a free account, you can create a profile, search for travel companions, and receive messages. Premium members get additional benefits like advanced search filters, unlimited messaging, profile highlighting, and access to exclusive events and meetups.</p>
+              </div>
+          </div>
+          
+          <div class="faq-item">
+              <div class="faq-question">
+                  How do I cancel or modify my travel plans?
+                  <i class='bx bx-chevron-down'></i>
+              </div>
+              <div class="faq-answer">
+                  <p>You can easily update your travel plans through your profile dashboard. If you've already connected with a travel buddy, it's considerate to inform them as soon as possible about any changes. You can use our messaging system to communicate these changes or cancel plans if necessary.</p>
+              </div>
+          </div>
+          
+          <div class="faq-item">
+              <div class="faq-question">
+                  What destinations are covered by Travel Buddy Finder?
+                  <i class='bx bx-chevron-down'></i>
+              </div>
+              <div class="faq-answer">
+                  <p>Travel Buddy Finder focuses on Indian destinations, covering all major tourist spots like Goa, Kerala, Rajasthan, Himachal Pradesh, Ladakh, Andaman & Nicobar Islands, Northeast India, and many more. We're continually expanding our database to include emerging travel hotspots across India.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Find Your Travel Buddy?</h2>
+            <p>Create your profile today and start connecting with fellow travelers all across India. Share experiences, split costs, and make lifelong memories!</p>
+            <div class="cta-buttons">
+                <button class="cta-btn cta-btn-white">Sign Up Now</button>
+                <button class="cta-btn cta-btn-outline">Learn More</button>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <a href="/" class="logo">
+                <i class='bx bx-trip'></i>
+                <span>TravelBuddy</span>
+            </a>
+            <p>Connect with like-minded travelers and embark on unforgettable journeys together.</p>
+            <div class="social-links">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-pinterest'></i></ Dy>
+            </div>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/how-it-works">How It Works</a></li>
+                <li><a href="/find-buddy">Browse Travelers</a></li>
+                <li><a href="/destinations">Destinations</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="/support">Help Center</a></li>
+                <li><a href="/support">Safety Tips</a></li>
+                <li><a href="/support">Privacy Policy</a></li>
+                <li><a href="/support">Terms of Service</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Travel Buddy Finder. All rights reserved.</p>
+    </div>
+</footer>
+
+  <script src="/js/contact.js"></script>
+</body>
+</html>
