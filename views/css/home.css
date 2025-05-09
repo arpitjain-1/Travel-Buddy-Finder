@@ -142,6 +142,7 @@ nav ul li a:hover {
     align-items: center;
     text-align: center;
     padding: 0 1rem;
+    background-color: #3498db;
 }
 
 .hero h1 {
@@ -507,3 +508,34 @@ footer {
     border-radius: 0 4px 4px 0;
 }
 
+/* Add these button styles to your home.css file */
+.btn-success {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .btn-warning {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: #9e9e9e;
+    color: white;
+  }
+  
+  /* Style for disabled buttons */
+  .btn[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Make the form display inline so button sizing is consistent */
+  .card-footer form {
+    display: inline-block;
+  }

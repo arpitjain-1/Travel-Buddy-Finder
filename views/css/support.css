@@ -1,0 +1,35 @@
+/* support-hero.css */
+
+.support-hero {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .support-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .support-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #e0f7ff;
+  }
+  
+  @media (max-width: 768px) {
+    .support-hero h1 {
+      font-size: 2.2rem;
+    }
+  
+    .support-hero p {
+      font-size: 1rem;
+    }
+  }
+  

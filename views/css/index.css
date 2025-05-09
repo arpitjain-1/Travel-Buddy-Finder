@@ -1,0 +1,150 @@
+/* Add these styles to your dashboard.css file */
+
+/* Stats grid with added pending card */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card.pending {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  /* Trip Request Sections */
+  .trip-requests-section {
+    margin-bottom: 2rem;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  .request-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  
+  .request-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .request-card.pending {
+    border-left: 4px solid #ff9800;
+  }
+  
+  .request-card.accepted {
+    border-left: 4px solid #4CAF50;
+  }
+  
+  .request-card.rejected {
+    border-left: 4px solid #f44336;
+    opacity: 0.8;
+  }
+  
+  .request-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .request-info p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .request-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .btn-success {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .status-badge.pending {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .status-badge.accepted {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .status-badge.rejected {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .flash-messages {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .flash-message {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }  
+
+  /* Add this to your shared CSS file */
+.nav-item-with-badge {
+    position: relative;
+    padding-right: 12px;
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #f44336;
+    color: white;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 6px rgba(244, 67, 54, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+    }
+  }

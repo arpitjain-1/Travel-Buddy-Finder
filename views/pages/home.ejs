@@ -1,401 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Buddy Finder</title>
-    <!-- Boxicons CSS -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Buddy Finder</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../css/home.css" />
+  <style>
+    .modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+  </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">
-                <i class='bx bx-trip'></i>
-                <span>TravelBuddy</span>
-            </a>
-            
-            <div class="search-container">
-                <input type="text" placeholder="Search destinations...">
-                <button><i class='bx bx-search'></i></button>
-            </div>
-            
-            <nav>
-                <ul>
-                    <li><a href="./home.ejs">Home</a></li>
-                    <li><a href="./destination.ejs">Destinations</a></li>
-                    <li><a href="./find-buddy.ejs">Find a Buddy</a></li>
-                    <li><a href="./about.ejs">About Us</a></li>
-                    <li><a href="./contact.ejs">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <% if(!user) {%>
-                <div class="auth-buttons">
-                    <a href="login2.ejs" class="btn btn-outline">Log In</a>
-                    <a href="signup2.ejs" class="btn btn-primary">Sign Up</a>
-                </div>
-            <%} else {%>
-                <a href="/logout" class="btn btn-outline">Logout</a>
-            <% } %>            
-        </div>
-    </header>
+<header>
+  <div class="header-container">
+    <a href="/" class="logo">
+      <i class='bx bx-trip'></i>
+      <span>TravelBuddy</span>
+    </a>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Find Your Perfect Travel Companion</h1>
-        <p>Connect with like-minded travelers who share your interests and travel style</p>
-        <div class="hero-cta">
-            <a href="find-buddy.ejs" class="btn btn-primary btn-large">Find a Travel Buddy</a>
-        </div>
-    </section>
+    <div class="search-container" style="background-color: inherit;">
+      <!-- <input type="text" placeholder="Search destinations..." />
+      <button><i class='bx bx-search'></i></button> -->
+    </div>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works">
-        <h2 class="section-title">How Travel Buddy Finder Works</h2>
-        <div class="steps-container">
-            <div class="step">
-                <i class='bx bx-user-circle step-icon'></i>
-                <h3>Create Your Profile</h3>
-                <p>Share your travel preferences, interests, and personality to find compatible companions</p>
-            </div>
-            <div class="step">
-                <i class='bx bx-search-alt step-icon'></i>
-                <h3>Discover Matches</h3>
-                <p>Browse potential travel buddies based on compatibility and shared interests</p>
-            </div>
-            <div class="step">
-                <i class='bx bx-message-rounded-dots step-icon'></i>
-                <h3>Connect & Plan</h3>
-                <p>Chat with your matches and start planning your dream adventure together</p>
-            </div>
-            <div class="step">
-                <i class='bx bx-world step-icon'></i>
-                <h3>Travel Together</h3>
-                <p>Embark on amazing journeys with your new travel companions</p>
-            </div>
-        </div>
-    </section>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/destinations">Destinations</a></li>
+        <li><a href="/find-buddy">Find a Buddy</a></li>
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+      </ul>
+    </nav>
 
-    <!-- Matching Section -->
-    <section class="content-section">
-        <div class="section-header">
-            <h2>Potential Travel Buddies</h2>
-            <a href="#" class="see-all">See All <i class='bx bx-right-arrow-alt'></i></a>
-        </div>
-        <div class="card-grid">
-            <!-- Travel Buddy Card 1 -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="IMG/Naitik.jpeg" alt="Travel buddy profile">
-                    <span class="compatibility">93% Match</span>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Naitik, 20</h3>
-                    <p class="card-details">Moradabad, Uttarpradesh</p>
-                    <p>Looking for adventure buddies in Uttrakhand this summer</p>
-                    <div class="card-tags">
-                        <span class="tag">Hiking</span>
-                        <span class="tag">Photography</span>
-                        <span class="tag">Food</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-outline"><i class='bx bx-message-rounded'></i> Message</button>
-                    <button class="btn btn-primary">Connect</button>
-                </div>
-            </div>
-            
-            <!-- Travel Buddy Card 2 -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="/api/placeholder/300/200" alt="Travel buddy profile">
-                    <span class="compatibility">87% Match</span>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Arihant Pratap, 22</h3>
-                    <p class="card-details">Bijnor, Uttarpradesh</p>
-                    <p>Planning a cultural tour across Uttarpradesh in spring</p>
-                    <div class="card-tags">
-                        <span class="tag">Museums</span>
-                        <span class="tag">History</span>
-                        <span class="tag">Local Cuisine</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-outline"><i class='bx bx-message-rounded'></i> Message</button>
-                    <button class="btn btn-primary">Connect</button>
-                </div>
-            </div>
-            
-            <!-- Travel Buddy Card 3 -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="/api/placeholder/300/200" alt="Travel buddy profile">
-                    <span class="compatibility">82% Match</span>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Arpit, 21</h3>
-                    <p class="card-details">Shivpuri, Madhyapradesh</p>
-                    <p>Backpacking for Goa for 3 weeks</p>
-                    <div class="card-tags">
-                        <span class="tag">Backpacking</span>
-                        <span class="tag">Nature</span>
-                        <span class="tag">Surfing</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-outline"><i class='bx bx-message-rounded'></i> Message</button>
-                    <button class="btn btn-primary">Connect</button>
-                </div>
-            </div>
-            
-            <!-- Travel Buddy Card 4 -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="/api/placeholder/300/200" alt="Travel buddy profile">
-                    <span class="compatibility">79% Match</span>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Najmush, 24</h3>
-                    <p class="card-details">Moradabad, Uttarpradesh</p>
-                    <p>Looking for companions for an south India tour</p>
-                    <div class="card-tags">
-                        <span class="tag">Food</span>
-                        <span class="tag">Culture</span>
-                        <span class="tag">City Breaks</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-outline"><i class='bx bx-message-rounded'></i> Message</button>
-                    <button class="btn btn-primary">Connect</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    <% if(!user) { %>
+      <div class="auth-buttons">
+        <a href="/login" class="btn btn-outline">Log In</a>
+        <a href="/signup" class="btn btn-primary">Sign Up</a>
+      </div>
+    <% } else { %>
+        <form action="/auth/logout" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-outline">Logout</button>
+        </form>          
+    <% } %>
+  </div>
+</header>
 
-    <!-- Active Trips Section -->
-    <section class="content-section bg-alt">
-        <div class="section-header">
-            <h2>Active Trips Looking for Companions</h2>
-            <a href="#" class="see-all">See All <i class='bx bx-right-arrow-alt'></i></a>
-        </div>
-        <div class="card-grid">
-            <!-- Trip Card 1 -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="IMG/Goa_tour.jpg" alt="Goa trip">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Goa Adventure</h3>
-                    <p class="card-details"><i class='bx bx-calendar'></i> May 15 - June 2 • <i class='bx bx-user'></i> 2/4 travelers</p>
-                    <p>Two weeks exploring Goa's beaches, parties, and jungles</p>
-                    <div class="card-tags">
-                        <span class="tag">Beach</span>
-                        <span class="tag">Parties</span>
-                        <span class="tag">Nature</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span><i class='bx bx-wallet'></i>10000₹-20000₹ budget</span>
-                    <button class="btn btn-primary">Join Trip</button>
-                </div>
-            </div>
-            
-            <!-- Trip Card 2 -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="IMG/South_India.jpg" alt="South India tour">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">South India Tour</h3>
-                    <p class="card-details"><i class='bx bx-calendar'></i> July 10 - September 10 • <i class='bx bx-user'></i> 3/6 travelers</p>
-                    <p>Two-month tour through karnatka, Telangana, Kerala and Chenni</p>
-                    <div class="card-tags">
-                        <span class="tag">City Break</span>
-                        <span class="tag">History</span>
-                        <span class="tag">Food</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span><i class='bx bx-wallet'></i> 35000₹-50000₹ budget</span>
-                    <button class="btn btn-primary">Join Trip</button>
-                </div>
-            </div>
-            
-            <!-- Trip Card 3 -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="IMG/Seven_Sister.jpg" alt=" Seven Sister">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Seven Sister Tour </h3>
-                    <p class="card-details"><i class='bx bx-calendar'></i> August 5 - August 15 • <i class='bx bx-user'></i> 1/3 travelers</p>
-                    <p>Exploring nature & culture of seven sister</p>
-                    <div class="card-tags">
-                        <span class="tag">Hiking</span>
-                        <span class="tag">Adventure</span>
-                        <span class="tag">Culture</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <span><i class='bx bx-wallet'></i> 20000₹-35000₹ budget</span>
-                    <button class="btn btn-primary">Join Trip</button>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+  <h1>Find Your Perfect Travel Companion</h1>
+  <p>Connect with like-minded travelers who share your interests and travel style</p>
+  <div class="hero-cta">
+    <a href="/find-buddy" class="btn btn-primary btn-large">Find a Travel Buddy</a>
+  </div>
+</section>
 
-    <!-- Testimonials Section -->
-    <section class="content-section testimonials">
-        <h2 class="section-title">Travel Stories From Our Community</h2>
-        <div class="testimonial-container">
-            <div class="testimonial">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">
-                        <img src="/api/placeholder/100/100" alt="User avatar">
-                    </div>
-                    <div>
-                        <h3>Naitik and Arihant Pratap</h3>
-                        <p>Uttrakhand Adventure</p>
-                        <div class="rating">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                        </div>
-                    </div>
-                </div>
-                <p>"We matched on TravelBuddy and spent an amazing three weeks exploring Uttrakhand together. What started as a travel partnership turned into a wonderful friendship!"</p>
-            </div>
-            
-            <div class="testimonial">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">
-                        <img src="/api/placeholder/100/100" alt="User avatar">
-                    </div>
-                    <div>
-                        <h3>Najmush</h3>
-                        <p>South India  Trip</p>
-                        <div class="rating">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star-half'></i>
-                        </div>
-                    </div>
-                </div>
-                <p>"I found a group of 3 other travelers with the same passion for photography. Our road trip across South India was unforgettable, and we're already planning our next adventure!"</p>
-            </div>
-        </div>
-    </section>
+<section class="how-it-works">
+  <h2 class="section-title">How Travel Buddy Finder Works</h2>
+  <div class="steps-container">
+    <div class="step">
+      <i class='bx bx-user-circle step-icon'></i>
+      <h3>Create Your Profile</h3>
+      <p>Share your travel preferences, interests, and personality to find compatible companions</p>
+    </div>
+    <div class="step">
+      <i class='bx bx-search-alt step-icon'></i>
+      <h3>Discover Matches</h3>
+      <p>Browse potential travel buddies based on compatibility and shared interests</p>
+    </div>
+    <div class="step">
+      <i class='bx bx-message-rounded-dots step-icon'></i>
+      <h3>Connect & Plan</h3>
+      <p>Chat with your matches and start planning your dream adventure together</p>
+    </div>
+    <div class="step">
+      <i class='bx bx-world step-icon'></i>
+      <h3>Travel Together</h3>
+      <p>Embark on amazing journeys with your new travel companions</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Destination Inspiration Section -->
-    <section class="content-section bg-alt">
-        <div class="section-header">
-            <h2>Destination Inspiration</h2>
-            <a href="#" class="see-all">Explore All <i class='bx bx-right-arrow-alt'></i></a>
-        </div>
-        <div class="destination-grid">
-            <!-- Destination 1 -->
-            <div class="destination-card">
-                <img src="../assets/images/Kasol.jpg" alt="Kasol">
-                <div class="destination-overlay">
-                    <h3>Kasol, Himachal Pradesh</h3>
-                    <p><i class='bx bx-user'></i> 124 potential matches</p>
-                </div>
+<section class="content-section">
+  <div class="section-header">
+    <h2>Potential Travel Buddies</h2>
+    <a href="/find-buddy" class="see-all">See All <i class='bx bx-right-arrow-alt'></i></a>
+  </div>
+  <div class="card-grid">
+    <% if (!users) { %>
+        <p style="color: red;">No users data passed to EJS!</p>
+      <% } else { %>
+        <% users.forEach(user => { %>
+          <div class="card">
+            <div class="card-content">
+              <h3 class="card-title"><%= user.name %></h3>
+              <p class="card-details"><%= user.email %></p>
+              <p><%= user.location %></p>
+              <div class="card-tags">
+                <% user.interests.forEach(tag => { %>
+                  <span class="tag"><%= tag %></span>
+                <% }) %>
+              </div>
             </div>
-            
-            <!-- Destination 2 -->
-            <div class="destination-card">
-                <img src="../assets/images/Dal_Lake.jpg" alt="Dal lake">
-                <div class="destination-overlay">
-                    <h3>Dal lake, Jammu & Kashmir</h3>
-                    <p><i class='bx bx-user'></i> 87 potential matches</p>
-                </div>
+            <div class="card-footer">
+              <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="btn btn-outline">Message</a>
+              <button class="btn btn-primary">Connect</button>
             </div>
-            
-            <!-- Destination 3 -->
-            <div class="destination-card">
-                <img src="../assets/images/Rishikesh.jpg" alt="Rishikesh">
-                <div class="destination-overlay">
-                    <h3>Rishikesh, Uttrakhand</h3>
-                    <p><i class='bx bx-user'></i> 93 potential matches</p>
-                </div>
-            </div>
-            
-            <!-- Destination 4 -->
-            <div class="destination-card">
-                <img src="../assets/images/Goa_tour.jpg" alt="Goa">
-                <div class="destination-overlay">
-                    <h3>Goa,Goa</h3>
-                    <p><i class='bx bx-user'></i> 115 potential matches</p>
-                </div>
-            </div>
-        </div>
-    </section>
+          </div>
+        <% }) %>        
+      <% } %>      
+  </div>
+</section>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <a href="#" class="logo">
-                    <i class='bx bx-trip'></i>
-                    <span>TravelBuddy</span>
-                </a>
-                <p>Connect with like-minded travelers and embark on unforgettable journeys together.</p>
-                <div class="social-links">
-                    <a href="#"><i class='bx bxl-facebook'></i></a>
-                    <a href="#"><i class='bx bxl-instagram'></i></a>
-                    <a href="#"><i class='bx bxl-twitter'></i></a>
-                    <a href="#"><i class='bx bxl-pinterest'></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Browse Travelers</a></li>
-                    <li><a href="#">Destinations</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Safety Tips</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Stay Updated</h4>
-                <p>Subscribe to our newsletter for travel inspiration and updates.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address">
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
-                <div class="app-downloads">
-                    <a href="#"><i class='bx bxl-apple'></i> App Store</a>
-                    <a href="#"><i class='bx bxl-play-store'></i> Google Play</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Travel Buddy Finder. All rights reserved.</p>
-        </div>
-    </footer>
+<section class="content-section">
+  <div class="section-header">
+    <h2>Available Trips</h2>
+    <a href="/all-trips" class="see-all">See All <i class='bx bx-right-arrow-alt'></i></a>
+  </div>
+  <div class="card-grid">
+    <% if (!activeTrips || activeTrips.length === 0) { %>
+      <p>No trips available at the moment.</p>
+    <% } else { %>
+      <% activeTrips.forEach(trip => { %>
+        <div class="card">
+          <div class="card-content">
+            <h3 class="card-title"><%= trip.title %></h3>
+            <p class="card-details">
+              <i class='bx bx-calendar'></i> <%= trip.startDate %> - <%= trip.endDate %>
+              <i class='bx bx-user'></i> <%= trip.currentTravelers %>/<%= trip.totalTravelers %>
+            </p>
+            <p class="card-title"><%= trip.description %></p>
+          </div>
+          <div class="card-footer">
+            <span><i class='bx bx-wallet'></i><%= trip.budget %></span>
+            <button class="btn btn-primary trip-details-btn"
+              data-trip='<%= JSON.stringify(trip).replace(/'/g, "&#39;") %>'>
+              View Details
+            </button>
 
-    <script src="../js/home.js"></script>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</section>
+
+<!-- Trip Detail Modal -->
+<div id="tripModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p><strong>Date:</strong> <span id="modalDate"></span></p>
+    <p><strong>Travelers:</strong> <span id="modalTravelers"></span></p>
+    <p><strong>Budget:</strong> <span id="modalBudget"></span></p>
+    <p><strong>Description:</strong> <span id="modalDescription"></span></p>
+  </div>
+</div>
+
+<!-- Optional: Testimonials Section -->
+<% if (travelStories && travelStories.length > 0) { %>
+<section class="content-section testimonials">
+  <h2 class="section-title">Travel Stories From Our Community</h2>
+  <div class="testimonial-container">
+    <% travelStories.forEach(t => { %>
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">
+            <img src="<%= t.avatar || '/api/placeholder/100/100' %>" alt="User avatar">
+          </div>
+          <div>
+            <h3><%= t.name %></h3>
+            <p><%= t.tripName %></p>
+          </div>
+        </div>
+        <p class="testimonial-content">"<%= t.story %>"</p>
+      </div>
+    <% }) %>
+  </div>
+</section>
+<% } %>
+
+<footer>
+  <div class="footer-container">
+      <div class="footer-col">
+          <a href="/" class="logo">
+              <i class='bx bx-trip'></i>
+              <span>TravelBuddy</span>
+          </a>
+          <p>Connect with like-minded travelers and embark on unforgettable journeys together.</p>
+          <div class="social-links">
+              <a href="#"><i class='bx bxl-facebook'></i></a>
+              <a href="#"><i class='bx bxl-instagram'></i></a>
+              <a href="#"><i class='bx bxl-twitter'></i></a>
+              <a href="#"><i class='bx bxl-pinterest'></i></ Dy>
+          </div>
+      </div>
+      
+      <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/how-it-works">How It Works</a></li>
+              <li><a href="/find-buddy">Browse Travelers</a></li>
+              <li><a href="/destinations">Destinations</a></li>
+          </ul>
+      </div>
+      
+      <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+              <li><a href="/support">Help Center</a></li>
+              <li><a href="/support">Safety Tips</a></li>
+              <li><a href="/support">Privacy Policy</a></li>
+              <li><a href="/support">Terms of Service</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p>© 2025 Travel Buddy Finder. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+  function showTripModal(trip) {
+    document.getElementById('modalTitle').textContent = trip.title;
+    document.getElementById('modalDate').textContent = `${trip.startDate || 'N/A'} - ${trip.endDate || 'N/A'}`;
+    document.getElementById('modalTravelers').textContent = `${trip.currentTravelers}/${trip.totalTravelers}`;
+    document.getElementById('modalBudget').textContent = trip.budget;
+    document.getElementById('modalDescription').textContent = trip.description;
+    document.getElementById('tripModal').classList.remove('hidden');
+  }
+
+  function closeModal() {
+    document.getElementById('tripModal').classList.add('hidden');
+  }
+
+  // Attach event listeners after DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.trip-details-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tripData = JSON.parse(btn.getAttribute('data-trip'));
+        showTripModal(tripData);
+      });
+    });
+  });
+</script>
 </body>
 </html>
